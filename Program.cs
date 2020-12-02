@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +13,14 @@ namespace EMP
 
             Employee e = new Employee();
 
-            //e.NAME ="";
+            e.NAME ="yamini";
 
-            //Console.WriteLine(e.NAME);
+            Console.WriteLine(e.NAME);
+            e.BASIC = 180000;
+            Console.WriteLine("basic salary = " + e.BASIC);
+            e.DEPTNO = 1;
+            Console.WriteLine("Dept no ="+e.DEPTNO);
+            Console.WriteLine("netsalary is " + e.GetNetSalary());
 
             Employee e1 = new Employee();
             e1.NAME = "Teju";
@@ -26,11 +31,12 @@ namespace EMP
 
           //e.BASIC = 19000000;
 
-            e.DEPTNO = 1;
-            Console.WriteLine(e.DEPTNO);
+            e.DEPTNO = 2;
+            Console.WriteLine("Dept no ="+e.DEPTNO);
+            Console.WriteLine("netsalary is " + e.GetNetSalary());
 
-            e.DEPTNO =-2;
-            Console.WriteLine(e.DEPTNO);
+            //e.DEPTNO =-2;
+            //Console.WriteLine(e.DEPTNO);
 
 
             Employee o1 = new Employee("Teju", 123465, 10);
@@ -40,7 +46,6 @@ namespace EMP
 
             Employee o5 = new Employee();
             Employee o6 = new Employee();
-            Console.WriteLine("netsalary is " + e.GetNetSalary());
 
             Console.ReadLine();
 
@@ -53,8 +58,8 @@ namespace EMP
 
         public Employee()
         {
-            EmpNo++;
-            Console.WriteLine("employee no =" + EmpNo);
+            empno++;
+            Console.WriteLine("employee no =" + empno);
                 
         }
 
@@ -164,6 +169,8 @@ namespace EMP
 
 
         #region properties
+
+        private static int empno;
         private int EmpNo;
 
         public int EMPNO
@@ -171,7 +178,7 @@ namespace EMP
 
             get
             {
-                return EMPNO;
+                return EmpNo;
             }
         }
         #endregion
