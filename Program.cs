@@ -4,48 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMP
+namespace ASGN1
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-
-            Employee e = new Employee();
-
-            e.NAME ="yamini";
-
-            Console.WriteLine(e.NAME);
-            e.BASIC = 180000;
-            Console.WriteLine("basic salary = " + e.BASIC);
-            e.DEPTNO = 1;
-            Console.WriteLine("Dept no ="+e.DEPTNO);
-            Console.WriteLine("netsalary is " + e.GetNetSalary());
-
-            Employee e1 = new Employee();
-            e1.NAME = "Teju";
-            Console.WriteLine(e1.NAME);
-
-            e.BASIC = 190000;
-            Console.WriteLine("basic salary = " + e.BASIC);
-
-          //e.BASIC = 19000000;
-
-            e.DEPTNO = 2;
-            Console.WriteLine("Dept no ="+e.DEPTNO);
-            Console.WriteLine("netsalary is " + e.GetNetSalary());
-
-            //e.DEPTNO =-2;
-            //Console.WriteLine(e.DEPTNO);
-
+           
 
             Employee o1 = new Employee("Teju", 123465, 10);
             Employee o2 = new Employee("Teju", 123465);
             Employee o3 = new Employee("Teju");
             Employee o4 = new Employee();
 
-            Employee o5 = new Employee();
-            Employee o6 = new Employee();
+
+            Console.WriteLine();
+            Console.WriteLine(o1.EMPNO);
+            Console.WriteLine(o1.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o2.EMPNO);
+            Console.WriteLine(o2.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o3.EMPNO);
+            Console.WriteLine(o3.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o4.EMPNO);
+            Console.WriteLine(o4.GetNetSalary());
+            Console.WriteLine("===================");
+
+            Console.WriteLine();
+            Console.WriteLine(o4.EMPNO);
+            Console.WriteLine(o4.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o3.EMPNO);
+            Console.WriteLine(o3.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o2.EMPNO);
+            Console.WriteLine(o2.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o1.EMPNO);
+            Console.WriteLine(o1.GetNetSalary());
+            Console.WriteLine();
 
             Console.ReadLine();
 
@@ -54,39 +53,18 @@ namespace EMP
     }
     class Employee
     {
-        
 
-        public Employee()
-        {
-            empno++;
-            Console.WriteLine("employee no =" + empno);
-                
-        }
 
-        public Employee(String NAME, decimal BASIC , short DEPTNO)
+      
+        public Employee(String NAME="Noname", decimal BASIC=20000, short DEPTNO=0)
         {
+            this.EmpNo = ++lastempno;
             this.NAME = NAME;
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
 
-            Console.WriteLine(NAME + "" + BASIC + "" + DEPTNO);
-        }
-
-        public Employee(String NAME, decimal BASIC)
-        {
-            this.NAME = NAME;
-            this.BASIC = BASIC;
-
-            Console.WriteLine( NAME + "" + BASIC);
-        }
-
-
-        public Employee(String NAME)
-        {
-            this.NAME = NAME;
-
-            Console.WriteLine("emp Name = " + NAME);
-
+           // Console.WriteLine("Employee no ="+lastempno);
+            //Console.WriteLine(NAME + "" + BASIC + "" + DEPTNO);
         }
 
         #region properties
@@ -96,7 +74,7 @@ namespace EMP
         {
             set
             {
-                if(value != "")
+                if (value != "")
                 {
                     name = value;
                 }
@@ -120,7 +98,7 @@ namespace EMP
         #region properties
         private decimal Basic;
 
-            public decimal BASIC
+        public decimal BASIC
         {
 
             set
@@ -139,7 +117,7 @@ namespace EMP
 
                 return Basic;
             }
-      
+
         }
         #endregion
 
@@ -150,9 +128,9 @@ namespace EMP
         {
             set
             {
-                if(value > 0)
+                if (value > 0)
                 {
-                     DeptNo = value;
+                    DeptNo = value;
                 }
                 else
                 {
@@ -170,7 +148,7 @@ namespace EMP
 
         #region properties
 
-        private static int empno;
+        private static int lastempno=0;
         private int EmpNo;
 
         public int EMPNO
@@ -184,7 +162,7 @@ namespace EMP
         #endregion
 
         #region method
-   public decimal GetNetSalary()  
+        public decimal GetNetSalary()
         {
             decimal basic = 100000;
             decimal hra = 50000;
