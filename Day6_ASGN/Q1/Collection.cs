@@ -67,7 +67,7 @@ namespace Collection1
 
             foreach(KeyValuePair<int,Employee> KVP in DicEmployee)
             {
-                if(KVP.Value.Salary == max)
+                if(KVP.Value.Salary > max)
                 {
                     max = KVP.Value.Salary;
                 }
