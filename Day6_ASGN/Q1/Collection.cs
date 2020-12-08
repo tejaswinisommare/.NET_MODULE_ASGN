@@ -1,174 +1,170 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Collection1
+namespace practice
 {
-    class Program
+    class Q1
     {
         static void Main(string[] args)
         {
-           
-                Dictionary<int, Employee> DicEmployee = new Dictionary<int, Employee>();
+            Dictionary<int, Employee> di = new Dictionary<int, Employee>();
             char choice = 'y';
-            while(choice == 'y')
+            while (choice == 'y')
             {
-                Employee.InsertEmployee(DicEmployee);
-                Console.WriteLine("Do you want to continue type (y/n)");
+                Employee.insertEmployee(di);
+                Console.Write("Do you Want to continue type (y/n) : ");
                 choice = Convert.ToChar(Console.ReadLine());
+
             }
-            Employee.DisplayHighsalary(DicEmployee);
-            Employee.SearchEmployee(DicEmployee);
-            Employee.NthSearchEmp(DicEmployee);
-            
-           
+            Console.WriteLine();
+            Console.WriteLine();
 
-            //foreach (KeyValuePair<int,Employee> KVP in DicEmployee)
-            //{
-            //    Console.WriteLine("key ={0}", KVP.Key);
-            //    Employee emp = KVP.Value;
-            //    Console.WriteLine("Empno = {0}, Name={1}, Salary = {2}",emp.Empno,emp.Name,emp.Salary );
+            Employee.highSalary(di);
 
-            //}
-            //Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Employee.empSearch(di);
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Employee.nthEmpSearch(di);
+
+
+            Console.ReadLine();
+
         }
+
     }
+
 
     class Employee
     {
-        private string name;
-        private decimal salary;
-        private int empno;
+        private int empId;
 
-
-        public Employee()
+        private string empName;
+        private decimal empSal;
+        public static int empKey = 0;
+        public int EmpId
         {
-
-        }
-
-        public static void InsertEmployee(Dictionary<int, Employee> DicEmployee)
-        {
-            Console.WriteLine("Enter emp number...");
-            int Empno = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter emp name ...");
-            string Name = Console.ReadLine();
-            Console.WriteLine("Enter emp salary...");
-            Decimal Salary = Convert.ToDecimal(Console.ReadLine());
-
-
-        }
-
-       
-        public static void DisplayHighsalary(Dictionary<int, Employee> DicEmployee)
-        {
-            Decimal max = 0;
-
-            foreach(KeyValuePair<int,Employee> KVP in DicEmployee)
+            set
             {
-                if(KVP.Value.Salary == max)
-                {
-                    max = KVP.Value.Salary;
-                }
+                if (value > 0)
+                    empId = value;
+                else
+                    Console.WriteLine("Enter Valid empId");
             }
 
-            Console.WriteLine("Highest Salary = " + max);
-
-
-            foreach(KeyValuePair<int,Employee> KVP1 in DicEmployee)
+            get
             {
-                if(KVP1.Value.Salary == max)
-                {
-                    Console.WriteLine("highest Salary Employee Details =>"+ KVP1.Key + "  " + KVP1.Value.Empno + " " + KVP1.Value.Name + " " + KVP1.Value.Salary);
-
-                    Console.WriteLine();
-                }
+                return empId;
             }
-
+        }
+        public string EmpName
+        {
+            set
+            {
+                if
+                    (value == null)
+                    Console.WriteLine("Enter Valid empName");
+                else
+                    empName = value;
+            }
+            get
+            {
+                return empName;
+            }
+        }
+        public decimal EmpSal
+        {
+            set
+            {
+                if (value < 10000)
+                    Console.WriteLine("Enter valid Emp sal ");
+                else
+                    empSal = value;
+            }
+            get
+            {
+                return empSal;
+            }
         }
 
-        public static void SearchEmployee(Dictionary<int, Employee> DicEmployee)
+        public Employee(int empId, string empName, decimal empSal)
         {
-            int searchNo;
-            Console.WriteLine("Enetr number to search Employee details:");
-
-            searchNo = Convert.ToInt32(Console.ReadLine());
-
-            foreach(KeyValuePair<int,Employee> KVP3 in DicEmployee)
-            {
-                if(KVP3.Value.Empno == searchNo)
-                {
-                    Console.WriteLine("Employee Details: "+ "  " + KVP3.Value.Empno + " " + KVP3.Value.Name + " " + KVP3.Value.Salary);
-                    Console.WriteLine();                
-                }
-            }
-
+            this.EmpId = empId;
+            this.EmpName = empName;
+            this.EmpSal = empSal;
         }
 
-        public static void NthSearchEmp(Dictionary<int, Employee> DicEmployee)
+        public static void insertEmployee(Dictionary<int, Employee> di)
         {
-            int searchNth;
-            Console.WriteLine("Enetr number to search Employee details:");
 
-            searchNth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter Employee Id : ");
+            int empId = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Employee Name : ");
+            string empName = Console.ReadLine();
+            Console.Write("Enter Employee Sal : ");
+            decimal empSal = Convert.ToDecimal(Console.ReadLine());
+            di.Add(++empKey, new Employee(empId, empName, empSal));
+        }
+
+        public static void highSalary(Dictionary<int, Employee> di)
+        {
+
+            decimal max = 0;
+            foreach (KeyValuePair<int, Employee> kvp1 in di)
+            {
+                if (kvp1.Value.empSal > max)
+                {
+                    max = kvp1.Value.empSal;
+                }
+
+            }
+            Console.WriteLine("highest salary =" + max);
+
+
+            foreach (KeyValuePair<int, Employee> kvp2 in di)
+            {
+
+                if (kvp2.Value.empSal == max)
+                {
+                    Console.WriteLine(kvp2.Key + " :==> " + kvp2.Value.EmpId + "  " + "  " + kvp2.Value.EmpName + "  " + kvp2.Value.EmpSal);
+                }
+            }
+        }
+        public static void empSearch(Dictionary<int, Employee> di)
+        {
+            Console.Write("Enter the Employee Number to search : ");
+            int Searchid = Convert.ToInt32(Console.ReadLine());
+
+            foreach (KeyValuePair<int, Employee> kvp in di)
+            {
+                if (Searchid == kvp.Value.EmpId)
+                    Console.WriteLine(kvp.Key + " :==> " + kvp.Value.EmpId + "  " + "  " + kvp.Value.EmpName + "  " + kvp.Value.EmpSal);
+
+            }
+        }
+
+        public static void nthEmpSearch(Dictionary<int, Employee> di)
+        {
+            Console.WriteLine("Enter the nth no of employee:");
+            int SearchNth = Convert.ToInt32(Console.ReadLine());
 
             int count = 1;
 
-            foreach (KeyValuePair<int, Employee> KVP3 in DicEmployee)
+            foreach (KeyValuePair<int, Employee> kvp3 in di)
             {
-                if (searchNth == count)
+                if (SearchNth == count)
                 {
-                    Console.WriteLine("Employee Details of Last Employee: " + "  " + KVP3.Value.Empno + " " + KVP3.Value.Name + " " + KVP3.Value.Salary);
+                    Console.WriteLine(kvp3.Key + " :==> " + kvp3.Value.EmpId + "  " + "  " + kvp3.Value.EmpName + "  " + kvp3.Value.EmpSal);
                 }
-
                 count++;
-            }
-
-
-        }
-
-        public string Name
-        {
-            set
-            {
-                if (value != null)
-                {
-                    name = value;
-                }
-                else
-                {
-                    Console.WriteLine("invalide input....please enetr valide");
-                }
-            }
-            get
-            {
-                return name;
-            }
-        }
-
-        public decimal Salary
-        {
-            set
-            {
-                value = salary;
-            }
-            get
-            {
-                return salary;
-            }
-        }
-
-        public int Empno
-        {
-
-            set
-            {
-                value = empno;
-            }
-            get
-            {
-                return empno;
             }
         }
     }
