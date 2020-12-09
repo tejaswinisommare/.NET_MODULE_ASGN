@@ -33,15 +33,15 @@ namespace LambdaFunction
             Console.WriteLine();
             Console.WriteLine();
 
-            Func<Employee, decimal> BS = e1 => e1.BasicSalary;
+            Func<Employee, decimal> BS = e1 => e1.GetBasic(e);
             Console.WriteLine("Basic Salary = " + BS(e));
 
             Console.WriteLine();
             Console.WriteLine();
 
 
-            Predicate<Employee> BG = e1 => (e1.BasicSalary > 10000);
-            Console.WriteLine(BG(e));
+            Predicate<Employee> BG = e2 => e2.IsGreaterThan10000(e);
+            Console.WriteLine("Is greater = " +BG(e));
 
 
 
