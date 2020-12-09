@@ -43,6 +43,7 @@ namespace LambdaFunction
             Predicate<Employee> BG = e2 => e2.IsGreaterThan10000(e);
             Console.WriteLine("Is greater = " +BG(e));
 
+            console.ReadLine();
 
 
         }
@@ -78,13 +79,13 @@ namespace LambdaFunction
 
 
 
-        static decimal GetBasic(Employee e)
+        public decimal GetBasic(Employee e)
         {
             return e.BasicSalary;
         }
 
 
-        static bool IsGreaterThan10000(Employee e)
+        public bool IsGreaterThan10000(Employee e)
         {
             if (e.BasicSalary > 10000)
             {
