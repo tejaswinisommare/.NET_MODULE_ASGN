@@ -1,0 +1,27 @@
+﻿<Window x:Class="Database1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Database1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="EmpNo" HorizontalAlignment="Left" Margin="95,64,0,0" VerticalAlignment="Top" Width="139"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="95,134,0,0" VerticalAlignment="Top" Width="139"/>
+        <Label Content="Basic" HorizontalAlignment="Left" Height="29" Margin="95,207,0,0" VerticalAlignment="Top" Width="139"/>
+        <Label Content="DeptNo" HorizontalAlignment="Left" Margin="95,267,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="txtEmpNo" HorizontalAlignment="Left" Height="23" Margin="286,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="26" Margin="286,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <TextBox x:Name="txtBasic" HorizontalAlignment="Left" Height="29" Margin="286,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <TextBox x:Name="txtDeptNo" HorizontalAlignment="Left" Height="26" Margin="286,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <Button Content="Insert" HorizontalAlignment="Left" Height="25" Margin="197,338,0,0" VerticalAlignment="Top" Width="110" Click="Button_Click"/>
+        <Button Content="InsertWithParameters" HorizontalAlignment="Left" Height="25" Margin="365,338,0,0" VerticalAlignment="Top" Width="175" Click="Button_Click_1"/>
+        <Button Content="StoredProcedure" HorizontalAlignment="Left" Margin="572,338,0,0" VerticalAlignment="Top" Width="187" Click="Button_Click_2"/>
+        <Button Content="Update" HorizontalAlignment="Left" Height="41" Margin="307,368,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click_3"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="471,368,0,0" VerticalAlignment="Top" Width="144" Height="40" Click="Button_Click_4"/>
+        <Button Content="Transaction" HorizontalAlignment="Left" Height="44" Margin="572,192,0,0" VerticalAlignment="Top" Width="187" Click="Button_Click_5"/>
+        <Button Content="ExecuteScalar" HorizontalAlignment="Left" Height="37" Margin="572,256,0,0" VerticalAlignment="Top" Width="187" Click="Button_Click_6"/>
+
+    </Grid>
+</Window>

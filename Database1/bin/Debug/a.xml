@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+  <NewDataSet>
+    <Emps diffgr:id="Emps1" msdata:rowOrder="0">
+      <EmpNo>1</EmpNo>
+      <Name>poonam</Name>
+      <Basic>800000.00</Basic>
+      <DeptNo>2</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps2" msdata:rowOrder="1">
+      <EmpNo>2</EmpNo>
+      <Name>pooja</Name>
+      <Basic>8000.00</Basic>
+      <DeptNo>3</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps3" msdata:rowOrder="2">
+      <EmpNo>3</EmpNo>
+      <Name>teju</Name>
+      <Basic>800000.00</Basic>
+      <DeptNo>1</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps4" msdata:rowOrder="3">
+      <EmpNo>4</EmpNo>
+      <Name>moni</Name>
+      <Basic>40000.00</Basic>
+      <DeptNo>2</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps5" msdata:rowOrder="4">
+      <EmpNo>5</EmpNo>
+      <Name>rani</Name>
+      <Basic>90000.00</Basic>
+      <DeptNo>3</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps6" msdata:rowOrder="5">
+      <EmpNo>6</EmpNo>
+      <Name>tanu</Name>
+      <Basic>700000.00</Basic>
+      <DeptNo>1</DeptNo>
+    </Emps>
+    <Emps diffgr:id="Emps7" msdata:rowOrder="6">
+      <EmpNo>8</EmpNo>
+      <Name>dsff</Name>
+      <Basic>67578</Basic>
+      <DeptNo>3</DeptNo>
+    </Emps>
+    <Deps diffgr:id="Deps1" msdata:rowOrder="0">
+      <DeptNo>1</DeptNo>
+      <DeptName>HR</DeptName>
+    </Deps>
+    <Deps diffgr:id="Deps2" msdata:rowOrder="1">
+      <DeptNo>2</DeptNo>
+      <DeptName>Production</DeptName>
+    </Deps>
+    <Deps diffgr:id="Deps3" msdata:rowOrder="2">
+      <DeptNo>3</DeptNo>
+      <DeptName>Marketing</DeptName>
+    </Deps>
+  </NewDataSet>
+</diffgr:diffgram>
